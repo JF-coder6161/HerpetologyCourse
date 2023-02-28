@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*标签选择器*/
+        div {
+            font-size: 10px;
+            font-weight: 100;
+        }
+
+        /*id 选择器*/
+        #1 {
+            font-size: 200px;
+            font-weight: 900;
+        }
+
+        /*class 选择器*/
+        .li1 {
+            color: red;
+        }
+
+        .c4 {
+            color: red;
+            font-size: 50px;
+            font-style: italic;
+        }
+
+        .c2 {
+            background-color: gray;
+        }
+
+        .c3 {
+            background-color: lightblue;
+        }
+
+        /*组合选择器 后代选择器*/
+        .c5 .abc{
+            background-color: deeppink;
+        }
+
+        /*组合选择器 子代选择器*/
+        .c5>.abc{
+
+        }
+
+        /*样式优先级
+        标签选择器 权重 为 1
+        类选择器 权重为10
+        id选择器 权重为100
+        嵌套越多优先级越高
+        嵌套相同数量 按顺序决定样式
+        */
+        p{
+            color: red;
+        }
+
+        .c10{
+            color:blue;
+        }
+
+        .c9 .c10{
+            color: aqua;
+        }
+
+        .c8 .c9 .c10{
+            color: brown;
+        }
+
+        /* !important
+            不比优先级
+        */
+        .c10{
+            color: brown!important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="1">yuan</div>
+<div id="2">yuan</div>
+
+<ul>
+    <li class="li1">Alice</li>
+    <li class="li1">Jack</li>
+    <li>Ben</li>
+</ul>
+
+<div class="c2 c4">AAA</div>
+<div class="c3 c4">bbb</div>
+
+<div class="c5">
+    <div class="abc">CCC</div>
+    <div>
+        <div class="abc">XXX</div>
+    </div>
+</div>
+
+<div class="c6">
+    <div class="abc">DDD</div>
+</div>
+
+<div class="c7">
+    <div class="c8">
+        <div class="c9">
+            <p class="c10">123</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

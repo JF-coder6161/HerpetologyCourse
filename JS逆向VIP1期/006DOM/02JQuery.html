@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .current {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+
+<button class="btn">add</button>
+<div class="box">
+    <div>show a img</div>
+</div>
+
+
+<script src="jquery-3.6.3.min.js"></script>
+<script>
+    $("ul li").click(function () {
+        // if ($(this).hasClass("current")) {
+        //     $(this).removeClass("current")
+        // } else {
+        //     $(this).addClass("current")
+        // }
+
+        $(this).toggleClass("current")
+    })
+
+    $(".btn").click()(function (){
+        $(".box").append("<div><img src='http://mm.enterdesk.com/bizhi/62814-340469.html'></div>")
+    })
+</script>
+</body>
+</html>

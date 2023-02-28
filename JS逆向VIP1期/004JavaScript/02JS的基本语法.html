@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        // 变量赋值  全局变量 前面不加 变量符  有 var let 修饰的变量都是局部变量
+        var x = 10;
+        let y = 10;
+        z = 100;
+        firstName = 'Jack';
+
+        // 数据类型 (重点)
+        var age = 20;
+        var pai = 3.14;
+        var name = 'Alice';
+        var secondName = "Petter";
+        var isMarried = false;
+        // 进阶的数据类型 [] 数组 {} object
+        var names = ['name', 'sex', 'age'];
+        var info = ['yuan', 18, "male"];
+        var info2 = {
+            "name": "Alice",
+            "age": 18,
+            "sex": "male"
+        };
+        console.log(typeof names); // object
+        console.log(typeof info);  // object
+        console.log(typeof info2); // object
+
+        console.log(info[0], info[1]);
+        console.log(info2["name"]);
+
+        var info3 = {
+            name: "Alice",
+            age: 18,
+            sex: "male"
+        }; // 对象 中的属性 (name,age,sex)
+        console.log(info3.age, info3.name);
+
+        var info4 = {
+            name: "Ben",
+            son: {
+                name: "Peter",
+                age: "10"
+            }
+        }
+        console.log(info4.son.name)
+
+        // 运算符
+        // ++ += 自增
+        // ==
+        console.log(2 == "2") // true 会暗转换
+        // === 完全等于
+        console.log(2 === "2") // false
+        // !== 不等于
+
+        console.log(1 + "2") // 12 暗转换
+        // && 与 || 或 ! 非
+        // python and or not
+
+
+        // 流程控制
+        // switch 基于映射 值判断 比 if else 效率高
+
+        // var count = 1
+        // var sum = 0
+        // while (count <= 100) {
+        //     if (count !== 88) {
+        //        sum = sum + count;
+        //        count ++;
+        //     }
+        // }
+        // console.log(sum)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

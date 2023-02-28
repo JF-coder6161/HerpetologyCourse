@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = "Hello World"
+    console.log(str.length)
+    console.log(str.slice(3, 5)) // 切分
+
+    // 数组
+    arr = ["Alice", "Bob", "GRA"]
+    arr.push("didi")
+    console.log(arr)
+    arr.pop() // 删除最后一个值
+    console.log(arr)
+    // 向数组首位插入值和删除值
+    arr.unshift(6) // 首位插入值
+    console.log(arr)
+    arr.shift() // 首位删除
+    console.log(arr)
+
+    // splice方法 : 删除  插入 替换
+    var arr2 = ["a","b","c","d"]
+    //console.log(arr2.splice(1, 2)); // 找到索引位置 ， 保留多少个
+
+    console.log(arr2.splice(1, 0, 'a'));
+
+
+    // 内置高阶函数
+    var arr1 = [1, 2, 3, 4, 5]
+
+    function filterOushu(item) {
+        if (item % 2 === 0) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    console.log(arr1.filter(filterOushu));
+
+    var arr1 = arr1.filter(function (item) {
+        return item % 2 === 0
+    })
+    console.log(arr1)
+
+    var arr1 = arr1.map(function (item) {
+        return item * item
+    })
+    console.log(arr1)
+
+
+
+
+
+</script>
+</body>
+</html>
