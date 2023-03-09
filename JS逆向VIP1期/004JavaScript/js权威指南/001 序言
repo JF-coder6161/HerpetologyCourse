@@ -1,0 +1,15 @@
+JavaScript概述
+
+1.核心Javascript语言定义了一个极小的API处理数字、文本、数组、集合、映射等，
+但不包括任何输入或输出功能。
+输入和输出（以及更复杂的特性，如网络、存储和图形）由嵌入 JavaScript 的“宿主”负责。
+
+2.JavaScript 的原始宿主环境是一个 web 浏览器，这仍然是 JavaScript 代码最常见的执行环境。
+web 浏览器环境允许 JavaScript 代码通过发送 HTTP 请求从用户的鼠标和键盘获取输入。
+它允许 JavaScript 代码用 HTML 和 CSS 向用户显示输出。
+
+3.从2010年开始，另一个宿主已经可以用于 JavaScript 代码。
+Node 没有限制 JavaScript 使用 web 浏览器提供的 api，而是允许 JavaScript 访问整个操作系统，
+允许 JavaScript 程序读和写文件，通过网络发送和接收数据，以及发出和服务 HTTP 请求。
+Node 是实现 web 服务器的常用选择，也是编写简单实用程序脚本的方便工具，可以作为 shell 脚本的替代。
+

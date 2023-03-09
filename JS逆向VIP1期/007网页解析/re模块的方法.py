@@ -13,6 +13,8 @@ reg = "(?P<tel>1[3-9]\d{9}).*?(?P<email>\d+@qq.com)"
 
 reg = "1[3-9]\d{9}"
 
+
+
 # split
 txt = "my name     is   yuan"
 res = re.split(r"\s+", txt)
