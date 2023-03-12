@@ -66,3 +66,4 @@ surname = book?.author?.surname;
  *   如果 o 中不存在 p，而且没有 setter 方法可供调用，则 p 一定会添加至 o 中。
  *   但如果 o 不是可扩展的，那么在 o 中不能定义新属性。
  */
+

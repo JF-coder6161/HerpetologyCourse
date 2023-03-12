@@ -1,11 +1,8 @@
 import requests
 
-
-
-
 url = "https://passport.17k.com/ck/user/login"
 headers = {
-"Host": "passport.17k.com",
+    "Host": "passport.17k.com",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
     "CONTENT-TYPE": "application/x-www-form-urlencoded; charset=UTF-8",
     "Origin": "https://passport.17k.com",
@@ -17,14 +14,13 @@ datas = {
     "loginName": "17791383347",
     "password": "asd1234"
 }
-res = requests.post(url, headers=headers, data=datas,proxies={
-
-    "http":"http://127.0.0.1:8888",
-    "https":"http://127.0.0.1:8888"
-},verify=False)
+res = requests.post(url, headers=headers, data=datas, proxies={
+    "http": "http://127.0.0.1:8888",
+    "https": "http://127.0.0.1:8888"
+}, verify=False)
 accessToken = res.headers.get("Set-Cookie")
 res.headers.get("Cookie")
-
+res.cookies
 # 登录
 url2 = "https://www.17k.com/"
 # Cookie =
