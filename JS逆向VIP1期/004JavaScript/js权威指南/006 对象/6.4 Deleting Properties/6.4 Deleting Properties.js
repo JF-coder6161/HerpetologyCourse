@@ -54,7 +54,9 @@ console.log(delete y) // => true this property can be deleted
  * 然而在严格模式中，delete 后跟随一个非法的操作数（比如 x），则会报一个语法错误，因此必须显式指定对象及其属性：
  */
 
-console.log(delete z)
-console.log(delete globalThis.z)
+console.log(delete z) // => true SyntaxError in strict mode
+console.log(delete globalThis.z) // =>true  This works
+
+
 
 
