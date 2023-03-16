@@ -4,7 +4,7 @@
 
 let target = {x: 1}, source = {y: 2, z: 3}
 
-for (let key of Object.keys(source)){
+for (let key of Object.keys(source)) {
     target[key] = source[key];
 }
 
@@ -25,5 +25,67 @@ console.log(target) // target => {x:1,y:2,z:3}
  * 则将在复制期间调用它们，但不会复制方法本身。
  */
 
+defaults = {
+    a: 1,
+    b: 2,
+    c: 'c',
+    book: "my all"
+}
+
+o = {
+    autor: "jack",
+    book: "The magic world"
+}
+
+
+Object.assign(o, defaults)
+console.log(o) // overwrites everything in o with defaults  {autor: 'jack', book: 'my all', a: 1, b: 2, c: 'c'}
+
+o1 = {
+    autor: "jack",
+    book: "The magic world"
+}
+
+o2 = Object.assign({}, defaults, o1)
+//o2 的属性重写defaults中的属性：
+console.log(o2) // overwrites {a: 1, b: 2, c: 'c', book: 'The magic world', autor: 'jack'}
+
+/**
+ * 我们会在 §6.10.4 见到，可以用 ... 展开操作符如下操作这个对象拷贝并重写：
+ */
+
+a1 = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+
+a2 = {
+    a: 4,
+    b: 5,
+    c: 6,
+    d: 7,
+}
+
+a3 = {...a1, ...a2}
+console.log(a3) // {a: 4, b: 5, c: 6, d: 7}
+
+/**
+ * 为了避免对象创建和复制的额外开销，我们还可以通过编写一个 Object.assign() 仅在缺少属性时复制属性：
+ */
+
+function merge(target, ...sources) {
+    for (let source of sources) {
+        for (let key of Object.keys(source)) {
+            if (!(key in target)) {
+                target[key] = source[key]
+            }
+        }
+    }
+    return target;
+}
+
+console.log(Object.assign({x: 1}, {x: 2, y: 2}, {y: 3, z: 4})) // => {x:2 , y:3 , z:4}
+console.log(merge({x: 1}, {x: 2, y: 2}, {y: 3, z: 4})) // {x: 1, y: 2, z: 4}
 
 
