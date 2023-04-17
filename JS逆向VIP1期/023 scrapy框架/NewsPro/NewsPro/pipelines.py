@@ -7,7 +7,13 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
+# 统计清洗掉数据的条数
+from scrapy.exceptions import DropItem
 
 class NewsproPipeline:
     def process_item(self, item, spider):
-        return item
+        if not item['content']:
+            DropItem("content不能为空,丢弃")
+        else:
+            return item
+        print("itme:::", item)
