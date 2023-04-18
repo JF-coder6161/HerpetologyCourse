@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+
+        function foo() {
+            var x = 10
+            return x
+        }
+
+        function bar() {
+            // 声明全局变量
+            x = 100
+        }
+
+        var res = foo()
+        console.log(res) // 10
+        bar()
+        console.log(x) // 100
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

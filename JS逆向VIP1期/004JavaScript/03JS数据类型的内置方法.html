@@ -22,12 +22,13 @@
     arr.shift() // 首位删除
     console.log(arr)
 
-    // splice方法 : 删除  插入 替换
+    // splice方法 : 删除  插入 替换  method parameter index 0: 定位索引  index 1 : 向后囊括索引个数
     var arr2 = ["a","b","c","d"]
     //console.log(arr2.splice(1, 2)); // 找到索引位置 ， 保留多少个
 
-    console.log(arr2.splice(1, 0, 'a'));
+    console.log(arr2.splice(1, 0, 'a')); // 插入
 
+    arr.splice(1,2,"x","y") // 替换
 
     // 内置高阶函数
     var arr1 = [1, 2, 3, 4, 5]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--  闭包,又称之为词法闭包 或 函数闭包 , 是引用了自由变量(外部非全局)的函数   -->
+    <!-- script 标签在一个作用域内    -->
+    <script>
+
+        // 独立的作用域  匿名函数自执行  开辟独立的作用域 (解决script标签都在一个作用域下, 函数与变量被污染)
+        <!-- foo 就是闭包函数  -->
+      suzikey =  (function () {
+
+            function set_key(key) {
+                return key + "789"
+            }
+
+            var key = "123456"
+
+            // foo 为闭包函数  引用了外部的非全局变量 key  与  set_key
+            function foo() {
+                new_key = set_key(key)
+                return "foo的key" + key
+            }
+            // 返回foo函数  使其能在定义环境外被执行
+            return foo
+        })()
+
+    </script>
+
+    <script>
+
+        <!-- bar 就是闭包函数  -->
+        b = (function () {
+            function set_key(key) {
+                return key + "xyz"
+            }
+
+            var key = "abcdef"
+
+            function bar() {
+                new_key = set_key(key)
+                return "bar的key" + key
+            }
+            return bar
+        })()
+
+    </script>
+
+    <script>
+        <!--  suzikey b  加载后 局部变量全部消除,因为产生了闭包逻辑,解释器将变量key 与 set_key函数 保留  -->
+        console.log(suzikey())
+        console.log(b())
+    </script>
+</head>
+<body>
+
+</body>
+</html>
