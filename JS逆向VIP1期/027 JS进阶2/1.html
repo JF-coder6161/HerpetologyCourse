@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function callAnotherFunc(fnFunction, vArgument) {
+            fnFunction(vArgument);
+        }
+
+        var doAdd = new Function("iNum", "alert(iNum + 10)");
+
+        callAnotherFunc(doAdd, 10);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

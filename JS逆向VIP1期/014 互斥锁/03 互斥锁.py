@@ -14,13 +14,13 @@ x = 1000
 
 def sub():
     # 加锁
-    #lock.acquire()
+    lock.acquire()
     global x
     temp = x - 1
     time.sleep(0.1)
     x = temp
     # 释放锁
-    #lock.release()
+    lock.release()
 
 
 # 串行版本
@@ -29,7 +29,7 @@ def sub():
 #
 # print(x)
 t_list = []
-for i in range(1000):
+for i in range(100):
     t = threading.Thread(target=sub)
     t.start()
     t_list.append(t)

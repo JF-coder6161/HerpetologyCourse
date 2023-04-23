@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script !src="">
+
+        // 构建函数的方式
+        function foo() {
+            console.log("foo")
+        }
+
+        foo()
+
+        // 构建函数的方式2
+        // 原始写法
+        var bar = new Function("console.log('bar')")
+        bar()
+
+        // 补充 undefined
+        /**
+         * 声明未赋值  得到 undifined
+         */
+
+        function f() {
+            console.log("f...")
+        }
+
+        var ret = f() // 函数没有返回值 则 默认返回undefined
+
+
+        // // 普通函数声明
+        // function Person() {
+        //     console.log("Person")
+        // }
+        //
+        // var p = Person() // undefined
+        //
+        // // 函数对象声明  ES6 之前的写法
+        // function Person() {
+        //     console.log("Person")
+        // }
+        //
+        // var p = new Person()
+        // console.log(p) // Person{}  获得Person对象
+        //
+
+        function Person(name, age) {
+            this.name = name // this 实例对象
+            this.age = age
+
+            // this. read = function (){
+            //     console.log(this.name + " reading")
+            // }
+        }
+
+        // 创建公共方法read  prototype 类比 公共类空间
+        Person.prototype.read = function (){
+            console.log(this.name + " reading ")
+        }
+
+        var p = new Person("Jack", 12)
+        console.log(p)
+        console.log(p.name) // Jack
+        p.read()
+
+
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

@@ -2,6 +2,7 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import random
 
 from scrapy import signals
 
@@ -10,9 +11,7 @@ from itemadapter import is_item, ItemAdapter
 
 
 class DownloadSpiderMiddleware:
-    # Not all methods need to be defined. If a method is not defined,
-    # scrapy acts as if the spider middleware does not modify the
-    # passed objects.
+
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -57,9 +56,10 @@ class DownloadSpiderMiddleware:
 
 
 class DownloadDownloaderMiddleware:
-    # Not all methods need to be defined. If a method is not defined,
-    # scrapy acts as if the downloader middleware does not modify the
-    # passed objects.
+    user_agent_list = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.48',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.50 Edg/112.0.1722.50'
+    ]
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -69,15 +69,8 @@ class DownloadDownloaderMiddleware:
         return s
 
     def process_request(self, request, spider):
-        # Called for each request that goes through the downloader
-        # middleware.
-
-        # Must either:
-        # - return None: continue processing this request
-        # - or return a Response object
-        # - or return a Request object
-        # - or raise IgnoreRequest: process_exception() methods of
-        #   installed downloader middleware will be called
+        request.headers['User-Agent'] = random.choice(self.user_agent_list)
+        # RETURN NONE  继续后续中间件去进行操作
         return None
 
     def process_response(self, request, response, spider):
