@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script >
+
+        /**
+         * var -> 1.预编译 导致变量提升
+         * let
+         * const
+         */
+
+        function fn(){
+            console.log(name)  // -> undefined
+            var name = "Jack"
+        }
+
+        fn()
+
+        function fn1(){
+            console.log(name)  // -> error
+            let name = "Jack"
+        }
+
+        fn1()
+
+        let name = "Jack"
+        name = 'Alex'
+        console.log(name)
+
+        /**
+         * const -> 常量 不可改变
+         */
+
+        const username = "yuan"
+        //username = "rain"
+
+    </script>
+
+</head>
+<body>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script>
+
+
+        foo(1, 2)
+
+        function foo(x, y) {
+            console.log(x + y)
+        }
+
+        foo(2, 3);
+
+        /**
+         * 匿名函数自调用
+         */
+
+        (function (x, y) {
+            console.log(x + y)
+        })(8, 4)
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
