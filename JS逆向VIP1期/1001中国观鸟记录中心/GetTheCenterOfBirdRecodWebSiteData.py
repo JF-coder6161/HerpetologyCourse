@@ -1,7 +1,13 @@
 import requests
-from Crypto.PublicKey import RSA
-from Crypto.Cipher import PKCS1_v1_5
-import base64
+import execjs
+import json
+
+with open("./JS/getRequestHeaders.js", "r", encoding='utf-8') as fp:
+    jsCode = fp.read()
+jsCompile = execjs.compile(jsCode)
+requestsParam = jsCompile.call("getRequestHeaders", 'page=1&limit=20')
+requestsParamJson = json.loads(requestsParam)
+print(requestsParamJson)
 
 requestUrl = "https://api.birdreport.cn/front/activity/search"
 
@@ -15,14 +21,27 @@ requestHeaders = {
     "Host": "api.birdreport.cn",
     "Origin": "http://www.birdreport.cn",
     "Referer": "http://www.birdreport.cn/",
-    "Requestid": "88d3c27a0b5bc048510899a05443f7dd",
+    "Requestid": requestsParamJson.get("requestId"),
     "Sec-Ch-Ua": '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
     "Sec-Ch-Ua-Mobile": '?0',
     "Sec-Ch-Ua-Platform": 'Windows',
     "Sec-Fetch-Dest": "empty",
     "Sec-Fetch-Mode": "cors",
     "Sec-Fetch-Site": "cross-site",
-    "Sign": "bd1823aea1b6f219c9b401602e836790",
-    "Timestamp": "1684673154000",
+    "Sign": requestsParamJson.get("sign"),
+    "Timestamp": str(requestsParamJson.get("timestamp")),
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
 }
+
+requestData = requestsParamJson.get("data")
+
+response = requests.post(url=requestUrl, headers=requestHeaders, data=requestData)
+responseDataJson = json.loads(response.text)
+print("data:::", responseDataJson.get("data"))
+with open("./JS/parseResponseData.js", "r", encoding='utf-8') as fpp:
+    jsParseCode = fpp.read()
+jsParseCodeCompile = execjs.compile(jsParseCode)
+responseParseData = jsParseCodeCompile.call("getParseData", responseDataJson.get("data"))
+
+print(type(responseParseData))
+print(responseParseData)
