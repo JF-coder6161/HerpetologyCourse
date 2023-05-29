@@ -14,7 +14,7 @@
         },
 
         get: function (val) {
-
+           // console.log("getCookie::key:",val,"value::",cookieTemp)
             return cookieTemp
 
         }

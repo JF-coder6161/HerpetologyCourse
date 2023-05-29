@@ -10,8 +10,7 @@ f.prototype.aes_encode = function (a) {
     if (e.location.href.indexOf(this.url) != -1) {
         var b = CryptoJS.enc.Utf8.parse(this.key);
         var c = CryptoJS.enc.Utf8.parse(this.iv);
-        var a = CryptoJS.AES.encrypt(a, b, {
-            iv: c,
+        var a = CryptoJS.AES.encrypt(a, b, {            iv: c,
             mode: CryptoJS.mode.CBC,
             padding: CryptoJS.pad.Pkcs7
         });
